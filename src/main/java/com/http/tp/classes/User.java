@@ -47,10 +47,7 @@ public class User implements Serializable {
     @Basic(optional = false)
     @Column(name = "prenom")
     private String prenom;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idUser")
-    private List<Document> documentList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "emetteur")
-    private List<Messages> messageList;
+  
 
     public User() {
     }
@@ -87,8 +84,7 @@ public class User implements Serializable {
 		this.nom = nom;
 		this.password = password;
 		this.prenom = prenom;
-		this.documentList = documentList;
-		this.messageList = messageList;
+	
 	}
 
 	public Grades getGrade() {
@@ -123,45 +119,6 @@ public class User implements Serializable {
         this.prenom = prenom;
     }
 
-    public List<Document> getDocumentList() {
-        return documentList;
-    }
-
-    public void setDocumentList(List<Document> documentList) {
-        this.documentList = documentList;
-    }
-
-    public List<Messages> getMessageList() {
-        return messageList;
-    }
-
-    public void setMessageList(List<Messages> messageList) {
-        this.messageList = messageList;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof User)) {
-            return false;
-        }
-        User other = (User) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "javaapplication2.User[ id=" + id + " ]";
-    }
+ 
     
 }

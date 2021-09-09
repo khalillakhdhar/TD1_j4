@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.http.tp.classes.Messages;
+import com.http.tp.classes.User;
 import com.http.tp.exception.RessourceNotFoundException;
 import com.http.tp.repository.MessageRepository;
 import com.http.tp.repository.UserRepository;
@@ -19,11 +20,7 @@ MessageRepository messageRepository;
 @Autowired
 UserRepository userRepository;
 
-public List<Messages> getMessagesByEmetteur(int userid)
-{
-	return messageRepository.findByEmetteur(userid);
-	
-}
+
 public Messages sendMessage(Messages message,int userId)
 {
 	return userRepository.findById(userId).map(user->{message.setEmetteur(user);
